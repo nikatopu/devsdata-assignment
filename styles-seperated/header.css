@@ -12,4 +12,31 @@ header {
     padding: 0 2lvw;
 }
 
+/* Set the header text to a bigger version */
+.header-heading > h1 {
+    font-size: 2lvw;
+    cursor: default;
+}
+
+/* Align the header buttons properly*/
+.header-buttons {
+    display: flex;
+    gap: 1.25lvw;
+    width: max-content;
+}
+
+/* Style the header a-link buttons */
+.header-buttons > a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1lvw;
+
+    transition-duration: 0.2s;
+}
+
+.header-buttons > a:hover {
+    transition-duration: 0.2s;
+    font-weight: bold;
+    transform: scale(1.05) translateY(-0.3lvh);
+}
 
