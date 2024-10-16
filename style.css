@@ -1,0 +1,26 @@
+/* Roboto Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Import Seperated Styles */
+@import "styles-seperated/header.css";
+
+/* Set Root Variables */
+:root {
+    --color-text: #0b0a19;
+    --color-background: #f6f5fb;
+    --color-primary: #4a3fce;
+    --color-secondary: #9690de;
+    --color-accent: #75c575;
+}
+
+/* Set Font, BG color and margin, padding*/
+body {
+    font-family: "Roboto", sans-serif;
+    color: var(--color-text);
+
+    background-color: var(--color-background);
+
+    margin: 0;
+    padding: 0;
+}
+

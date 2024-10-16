@@ -1,0 +1,15 @@
+/* Set the header display to max and flex */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-text);
+    
+    width: 96lvw;
+    padding: 0 2lvw;
+}
+
+
