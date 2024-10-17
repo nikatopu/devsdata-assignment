@@ -8,8 +8,8 @@ header {
     background-color: var(--color-background);
     border-bottom: 1px solid lightgray;
     
-    width: 96lvw;
-    padding: 0 2lvw;
+    width: 90lvw;
+    padding: 0 5lvw;
 }
 
 /* Set the header text to a bigger version */
@@ -21,7 +21,7 @@ header {
 /* Align the header buttons properly*/
 .header-buttons {
     display: flex;
-    gap: 1.25lvw;
+    gap: 2lvw;
     width: max-content;
 }
 
@@ -40,3 +40,71 @@ header {
     transform: scale(1.05) translateY(-0.3lvh);
 }
 
+
+
+
+/* For smaller devices */
+.header-dropdown, .header-dropdown-items {
+    /* navbar is hidden on a big screen */
+    display: none; 
+}
+
+@media screen and (max-width: 1024px) {
+    /* Hide the header buttons as text */
+    .header-buttons {
+        display: none;
+    }
+
+    .header-heading > h1 {
+        font-size: 6lvw;
+    }
+
+    /* Show the navbar */
+    .header-dropdown {
+        display: block;
+    }
+
+    .header-dropdown > svg > path{
+        fill: var(--color-text);
+    }
+
+    #dropdown-button {
+        padding: 1lvw;
+    }
+
+    /* Navbar items */
+    header {
+        position: relative;
+    }
+
+    .header-dropdown-items {
+        display: flex;
+        flex-direction: column;
+
+        position: absolute;
+        height: max-content;
+        right: 0;
+        top: 100%;
+    }
+
+    .header-dropdown-items > a {
+        font-size: 5lvw;
+        text-decoration: none;
+        color: var(--color-text);
+
+        padding: 3lvw 5lvw;
+        border: 1px solid var(--color-text);
+        background-color: var(--color-background);
+
+        text-align: center;
+    }
+
+    .toggled {
+        border: 1px solid var(--color-text);
+        border-radius: 15%;
+    }
+
+    .closed {
+        display: none;
+    }
+}

@@ -14,7 +14,6 @@
     <title>Devtech Assignment</title>
 </head>
 <body>
-
     <!---------------------- The Header ----------------------->
     <header>
         <!-- Text on the left side -->
@@ -22,8 +21,23 @@
             <h1>SWAPI Getter</h1>
         </div>
 
-        <!-- Text on the right side -->
+        <!-- Buttons on the right side -->
         <div class="header-buttons">
+            <a rel="noopener" target="_blank" href="https://topuportfolio.onrender.com/">Portfolio</a>
+            <a rel="noopener" target="_blank" href="https://github.com/nikatopu/">GitHub</a>
+            <a rel="noopener" target="_blank" href="https://www.linkedin.com/in/nikoloz-topuridze-258676270/">LinkedIn</a>
+        </div>
+
+        <!-- Navbar dropdown for smaller devices -->
+        <div class="header-dropdown">
+            <!-- The navbar button as svg that opens the header-dropdown-items -->
+            <svg id="dropdown-button" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="10lvw" viewBox="0 0 30 30">
+                <path d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z"></path>
+            </svg>
+        </div>
+
+        <!-- The a-link buttons as dropdown items -->
+        <div id="header-dropdown-items" class="header-dropdown-items closed">
             <a rel="noopener" target="_blank" href="https://topuportfolio.onrender.com/">Portfolio</a>
             <a rel="noopener" target="_blank" href="https://github.com/nikatopu/">GitHub</a>
             <a rel="noopener" target="_blank" href="https://www.linkedin.com/in/nikoloz-topuridze-258676270/">LinkedIn</a>
@@ -69,5 +83,6 @@
     </div>
 
 
+    <script src="index.js"></script>
 </body>
 </html>
