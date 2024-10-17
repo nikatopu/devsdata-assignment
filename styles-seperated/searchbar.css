@@ -1,0 +1,64 @@
+/* The searchbar css*/
+.search {
+    display: flex;
+    justify-content: center;
+
+}
+
+#searchbar {
+    margin: 2lvw 5lvw;
+    padding: 0 1lvw;
+
+    width: 45lvw;
+    height: 2lvw;
+
+    border: 1px solid var(--color-secondary);
+    border-radius: 2lvw;
+    background-color: var(--color-text);
+    color: var(--color-background);
+
+    font-size: 1lvw;
+}
+
+#searchbar:focus {
+    border: 3px solid var(--color-accent)
+}
+
+/* The searchbar icon */
+.searchbar-box {
+    position: relative;
+    width: max-content;
+}
+
+.search-icon {
+    position: absolute;
+    right: 6.2lvw;
+    top: 2.27lvw;
+
+    cursor: pointer;
+}
+
+
+
+/* For smaller devices */
+@media screen and (max-width: 1024px) {
+    #searchbar {
+        width: 80lvw;
+        height: 4lvh;
+
+        font-size: 2lvh;
+
+        border-radius: 25px;
+        padding: 0 4lvw;
+        margin: 2lvh 5lvw;
+    }
+
+    .search-icon {
+        right: 8.2lvw;
+        top: 2.9lvh;
+    }
+
+    .search-icon > svg {
+        width: 5lvw;
+    }
+}
