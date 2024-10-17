@@ -105,8 +105,4 @@ header {
         border: 1px solid var(--color-text);
         border-radius: 15%;
     }
-
-    .closed {
-        display: none;
-    }
 }

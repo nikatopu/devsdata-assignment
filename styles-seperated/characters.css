@@ -1,0 +1,122 @@
+/* The character list */
+.character-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    padding: 0 5lvw;
+    gap: 1lvw;
+
+    align-self: center;
+}
+
+.character-list-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* The character block in the flexbox */
+.character {
+    width: 20lvw;
+    height: max-content;
+
+    padding: 1.5lvw 0.5lvw;
+
+    border: 1px solid var(--color-text);
+    border-radius: 1lvw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1lvw;
+
+    transition-duration: 0.25s;
+
+    background-color: var(--color-background);
+}
+
+.character:hover:not(.character-enlarged) {
+    cursor: pointer;
+
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+
+    transform: scale(1.05) translateY(-6px);
+    transition-duration: 0.25s;
+}
+
+/* The character info but enlarged */
+
+.character-enlarged {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+/* The character details */
+.character-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2lvh;
+
+    width: 100%;
+}
+
+.character-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+
+    font-size: 1lvw;
+
+    border-bottom: 1px solid var(--color-text);
+}
+
+.character-detail > * {
+    margin: 0;
+}
+
+/* To open more details */
+.character-button > button {
+    cursor: pointer;
+
+    padding: 0.5lvw 1.5lvw;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-text);
+    border-radius: 0.5lvw;
+
+    font-size: 1lvw;
+    color: var(--color-text);
+
+    transition-duration: 0.25s;
+}
+
+.character-button > button:hover {
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 0 1lvw var(--color-primary);
+
+    transition-duration: 0.25s;
+}
+
+
+
+
+/* For smaller screen sizes */
+@media screen and (max-width:1024px) {
+    .character {
+        width: 80lvw;
+        height: 10lvh;
+
+        font-size: 3lvw;
+    }
+
+    .character-list {
+        justify-content: center;
+    }
+}
