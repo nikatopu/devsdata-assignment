@@ -48,3 +48,18 @@
     border-color: var(--color-secondary);
     background-color: var(--color-secondary);
 }
+
+
+/* For smaller devices */
+@media screen and (max-width:1024px) {
+    .pagination {
+        margin: 2lvh 0;
+
+        gap: 1lvw;
+    }
+
+    .page-element {
+        font-size: 1.5lvh;
+        padding: 0.5lvh 0.8lvh;
+    }
+}

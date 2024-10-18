@@ -82,8 +82,10 @@ updateCharactersByLink(); // Call this to update the data at the start of the we
 // ----------- Search Function ----------- //
 const searchbar = document.getElementById('searchbar');
 const searchLink = defaultAPILink + "?search=";
+
 var callTime = 500;
 var callTimeout;
+
 searchbar.addEventListener('input', (ev) => {
     // Use a timeout for 0.5s intervals between calls
     clearTimeout(callTimeout);
