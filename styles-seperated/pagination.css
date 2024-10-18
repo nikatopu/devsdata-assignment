@@ -13,10 +13,14 @@
 .page-element {
     cursor: pointer;
 
-    padding: 0.5lvw 0.75lvw;
+    padding: 0.5lvw 0.85lvw;
     border: 1px solid var(--color-text);
     border-radius: 15px;
     font-size: 1lvw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     transition-duration: 0.25s;
 }
