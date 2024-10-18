@@ -54,12 +54,13 @@ async function updateCharactersByLink(link=defaultAPILink) {
     for(var i = 1; i <= 9; i++) {
         var pageElement = document.createElement("div");
 
-        pageElement.innerHTML = "<p>" + i + "</p>";
+        pageElement.innerHTML = `<p>${i}</p>`;
+        pageElement.setAttribute('data-page', i);
 
         pageElement.classList.add("page-element");
         if (currentPage === i) {pageElement.classList.add("page-current")}
 
-        pageElement.onclick = (ev) => updateCharactersByLink(defaultAPILink + "?page=" + ev.target.innerHTML.slice(3,4))
+        pageElement.onclick = (ev) => updateCharactersByLink(defaultAPILink + "?page=" + ev.currentTarget.getAttribute('data-page'));
 
         pagination.append(pageElement);
     }
