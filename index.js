@@ -10,13 +10,14 @@ dropdownButton.addEventListener('click', () => {
 const defaultAPILink = "https://swapi.dev/api/people/";
 
 async function updateCharactersByLink(link=defaultAPILink) {
-    // Empty the character list
     const characterList = document.getElementById('character-list');
-    characterList.innerHTML = "";
 
     // Fetch the API data
     const result = await fetch(link);
     const data = await result.json();
+    
+    // Empty the character list
+    characterList.innerHTML = "";
 
     // For each resulted character, create a new div and append it
     data.results.forEach(element => {
