@@ -1,4 +1,5 @@
 // ----------- Toggle the navbar dropdown ----------- //
+
 const dropdownButton = document.getElementById("dropdown-button");
 const dropdownItems = document.getElementById("header-dropdown-items");
 dropdownButton.addEventListener('click', () => {
@@ -9,13 +10,17 @@ dropdownButton.addEventListener('click', () => {
 // ----------- Getting the API data ----------- //
 const defaultAPILink = "https://swapi.dev/api/people/";
 
+// Cooldown for calling the API
+var callTime = 500;
+var callTimeout;
+
 async function updateCharactersByLink(link=defaultAPILink) {
     const characterList = document.getElementById('character-list');
 
     // Fetch the API data
     const result = await fetch(link);
     const data = await result.json();
-    
+
     // Empty the character list
     characterList.innerHTML = "";
 
@@ -39,16 +44,18 @@ async function updateCharactersByLink(link=defaultAPILink) {
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = "";
 
+    // Custom function for calling on click with the timeout so we don't spam API calls
+    function timedUpdate(timedLink=link) {
+        clearTimeout(callTimeout);
+        callTimeout = setTimeout(() => updateCharactersByLink(timedLink), 500);
+    }
+
     // Add the previous button
     var previousPage = document.createElement('div');
-
     previousPage.innerHTML = "<p>previous</p>";
-
     previousPage.classList.add("page-element");
     if (data.previous === null) {previousPage.classList.add("page-disabled")}
-
-    previousPage.onclick = () => (updateCharactersByLink(data.previous));
-
+    previousPage.onclick = () => (timedUpdate(data.previous));
     pagination.append(previousPage);
 
     // Add buttons for pagination
@@ -61,21 +68,21 @@ async function updateCharactersByLink(link=defaultAPILink) {
         pageElement.classList.add("page-element");
         if (currentPage === i) {pageElement.classList.add("page-current")}
 
-        pageElement.onclick = (ev) => updateCharactersByLink(defaultAPILink + "?page=" + ev.currentTarget.getAttribute('data-page'));
+        pageElement.onclick = (ev) => {
+            var page = ev.currentTarget.getAttribute('data-page');
+            var customLink = `${defaultAPILink}?page=${page}`;
+            timedUpdate(customLink);
+        };
 
         pagination.append(pageElement);
     }
 
     // Add the next button
     var nextPage = document.createElement('div');
-
     nextPage.innerHTML = "<p>next</p>";
-
     nextPage.classList.add("page-element");
     if (data.next === null) {nextPage.classList.add("page-disabled")}
-
-    nextPage.onclick = () => (updateCharactersByLink(data.next))
-
+    nextPage.onclick = () => (timedUpdate(data.next))
     pagination.append(nextPage);
 }
 
@@ -84,9 +91,6 @@ updateCharactersByLink(); // Call this to update the data at the start of the we
 // ----------- Search Function ----------- //
 const searchbar = document.getElementById('searchbar');
 const searchLink = defaultAPILink + "?search=";
-
-var callTime = 500;
-var callTimeout;
 
 searchbar.addEventListener('input', (ev) => {
     // Use a timeout for 0.5s intervals between calls
