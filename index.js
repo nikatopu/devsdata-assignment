@@ -1,4 +1,4 @@
-// Toggle the navbar dropdown
+// ----------- Toggle the navbar dropdown ----------- //
 const dropdownButton = document.getElementById("dropdown-button");
 const dropdownItems = document.getElementById("header-dropdown-items");
 dropdownButton.addEventListener('click', () => {
@@ -6,13 +6,8 @@ dropdownButton.addEventListener('click', () => {
     dropdownButton.classList.toggle('toggled');
 })
 
-// Getting the API data
+// ----------- Getting the API data ----------- //
 const defaultAPILink = "https://swapi.dev/api/people/";
-
-async function getData(link=defaultAPILink) {
-    const result = await fetch(link);
-    console.log(await result.json())
-}
 
 async function updateCharactersByLink(link=defaultAPILink) {
     // Empty the character list
@@ -82,4 +77,25 @@ async function updateCharactersByLink(link=defaultAPILink) {
     pagination.append(nextPage);
 }
 
-updateCharactersByLink();
+updateCharactersByLink(); // Call this to update the data at the start of the website
+
+// ----------- Search Function ----------- //
+const searchbar = document.getElementById('searchbar');
+const searchLink = defaultAPILink + "?search=";
+var callTime = 500;
+var callTimeout;
+searchbar.addEventListener('input', (ev) => {
+    // Use a timeout for 0.5s intervals between calls
+    clearTimeout(callTimeout);
+    callTimeout = setTimeout(() => {    
+        // Everytime a new input value is given, update the list
+        var searchBy = ev.target.value;
+        if (searchBy.length >= 2) {
+            updateCharactersByLink(searchLink + searchBy);
+        }
+        // Call this so that normal list is shown
+        if (searchBy.length === 0) {
+            updateCharactersByLink(); 
+        }
+    }, callTime)
+})
