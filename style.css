@@ -5,6 +5,7 @@
 @import "/styles-seperated/header.css";
 @import "/styles-seperated/searchbar.css";
 @import "/styles-seperated/characters.css";
+@import "/styles-seperated/pagination.css";
 
 /* Set Root Variables */
 :root {

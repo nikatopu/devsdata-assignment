@@ -1,0 +1,46 @@
+/* The pagination is flexed wide */
+.pagination {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1lvw;
+    margin-top: 2lvw;
+}
+
+/* Pagination elements */
+.page-element {
+    cursor: pointer;
+
+    padding: 0.5lvw 0.75lvw;
+    border: 1px solid var(--color-text);
+    border-radius: 15px;
+    font-size: 1lvw;
+
+    transition-duration: 0.25s;
+}
+
+.page-element:hover:not(.page-disabled):not(.page-current) {
+    transform: scale(1.05) translateY(-3px);
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    transition-duration: 0.25s;
+}
+
+.page-element > p {
+    margin: 0;
+}
+
+/* Disabled page element */
+.page-disabled {
+    cursor: default;
+    color: gray;
+    border-color: gray;
+}
+
+/* Current page element */
+.page-current {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+}
