@@ -4,7 +4,7 @@ An assignment I was given by Devsdata. This is a website which I had to build fr
 
 This website was built on SWAPI, the best star wars API.
 
-To checkout the website, you can either download the files and open the index.html yourself, or just open the following link: https://nikatopu.github.io/devtech-assignment/
+To checkout the website, you can either download the files and open the index.html yourself, or just open the following link: https://nikatopu.github.io/devsdata-assignment/
 
 
 ## 🛠 Skills Used
