@@ -4,6 +4,8 @@ An assignment I was given by Devtech. This is a website which I had to build fro
 
 This website was built on SWAPI, the best star wars API.
 
+To checkout the website, you can either download the files and open the index.html yourself, or just open the following link: https://nikatopu.github.io/devtech-assignment/
+
 
 ## 🛠 Skills Used
 Javascript, HTML, CSS
