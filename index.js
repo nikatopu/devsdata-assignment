@@ -104,10 +104,21 @@ function createCharacterDetail(detailName, detailValue) {
     return characterDetail;
 }
 
+function createCharacterDetailArray(detailName, detailArray) {
+    const characterDetail = createElement('div', 'character-detail');
+    characterDetail.append(createElement('h3', '', detailName));
+
+    const bigParagraph = createElement('p');
+    detailArray.forEach((item) => bigParagraph.append(createElement('p', '', item)));
+    characterDetail.append(bigParagraph);
+
+    return characterDetail;
+}
+
 // For fetching and joining array data (films, species, vehicles, starships)
 async function fetchAndJoinData(array, fetchFunc) {
     const results = await Promise.all(array.map(fetchFunc));
-    return results.join(", ");
+    return results;
 }
 
 // For creating more details
@@ -119,10 +130,10 @@ async function addMoreDetails(where, data) {
     const starships = await fetchAndJoinData(data.starships, fetchName);
 
     // Append the fetched details only if they are not empty
-    if (films) where.append(createCharacterDetail('Films:', films));
-    if (species) where.append(createCharacterDetail('Species:', species));
-    if (vehicles) where.append(createCharacterDetail('Vehicles:', vehicles));
-    if (starships) where.append(createCharacterDetail('Starships:', starships));
+    if (films.length) where.append(createCharacterDetailArray('Films:', films));
+    if (species.length) where.append(createCharacterDetailArray('Species:', species));
+    if (vehicles.length) where.append(createCharacterDetailArray('Vehicles:', vehicles));
+    if (starships.length) where.append(createCharacterDetailArray('Starships:', starships));
 }
 
 // Creating the element for character information dynamically
