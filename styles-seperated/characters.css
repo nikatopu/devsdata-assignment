@@ -55,7 +55,6 @@
     left: 50%;
     translate: -50% -50%;
 
-    z-index: 8;
     max-height: 80lvh;
     min-width: max-content;
     padding: 2lvw;
@@ -67,6 +66,8 @@
     left: 0;
     width: 100lvw;
     height: 100lvh;
+
+    z-index: 2;
 
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
