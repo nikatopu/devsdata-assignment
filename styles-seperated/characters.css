@@ -180,4 +180,32 @@
     .character-list {
         justify-content: center;
     }
+
+    .character-info {
+        max-height: 80lvh;
+    }
+
+    .character-detail {
+        font-size: 3.5lvw;
+        width: 75lvw;
+    }
+
+    .character-enlarged {
+        height: max-content;
+        padding: 3lvh;
+    }
+
+    .character-button > button {
+        font-size: 3lvw;
+        padding: 1lvh 3lvh;
+    }
+
+    .character-enlarged > .character-enlarge-close {
+        right: 1lvh;
+        top: 1lvh;
+    }
+
+    .character-enlarge-close > svg {
+        width: 3lvh;
+    }
 }
