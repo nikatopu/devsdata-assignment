@@ -94,6 +94,10 @@
     fill: var(--color-text);
 }
 
+.character-enlarged > .character-info {
+    display: flex !important;
+}
+
 /* The character details */
 .character-info {
     display: flex;

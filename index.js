@@ -39,8 +39,42 @@ function createCharacterElement(characterData) {
     const closeButton = createCloseButton();
     character.append(closeButton);
 
+    character.append(createCharacterInfo(characterData));
+
     characterWrapper.append(character);
     return characterWrapper;
+}
+
+// Helper function for creating the character info
+function createCharacterDetail(detailName, detailValue) {
+    const characterDetail = createElement('div', 'character-detail');
+    characterDetail.append(createElement('h3', '', detailName));
+    characterDetail.append(createElement('p', '', detailValue));
+    return characterDetail;
+}
+
+
+// Creating the element for character information dynamically
+function createCharacterInfo(characterData) {
+    const characterInfo = createElement('div', 'character-info closed');
+    
+    // Define character details in an object to iterate over
+    const details = {
+        'Height:': characterData.height,
+        'Mass:': characterData.mass,
+        'Hair:': characterData.hair_color,
+        'Skin:': characterData.skin_color,
+        'Eye:': characterData.eye_color,
+        'Born:': characterData.birth_year,
+        'Gender:': characterData.gender
+    };
+
+    // Loop through each detail and append to characterInfo
+    Object.entries(details).forEach(([label, value]) => {
+        characterInfo.append(createCharacterDetail(label, value));
+    });
+
+    return characterInfo;
 }
 
 // Creating the close button for the enlarged character
